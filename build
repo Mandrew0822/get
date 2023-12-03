@@ -2,4 +2,6 @@
 
 sudo cp get /usr/local/bin 
 
+cd ..
+
 echo "Done! now just run 'get'"
