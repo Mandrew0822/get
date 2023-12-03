@@ -9,7 +9,7 @@ if [ "$1" == "-h" ]; then
 fi
 
 if [ $# -ne 2 ]; then
-    echo -e "\e[91mError: Usage - $0 <github_user> <project_name>\e[0m"
+    echo -e "Usage - $0 <github_user> <project_name>"
     exit 1
 fi
 
