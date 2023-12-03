@@ -1,5 +1,0 @@
-#!/bin/bash 
-
-sudo cp get /usr/local/bin 
-
-echo "Done! now just run 'get'"
