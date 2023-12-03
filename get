@@ -1,0 +1,29 @@
+#!/bin/bash
+
+log_file="$HOME/get/clone.hist"
+
+if [ "$1" == "-h" ]; then
+    # Display history using less
+    less "$log_file"
+    exit 0
+fi
+
+if [ $# -ne 2 ]; then
+    echo -e "\e[91mError: Usage - $0 <github_user> <project_name>\e[0m"
+    exit 1
+fi
+
+github_user=$1
+project_name=$2
+
+echo -e "\e[96mFetching the repo...\e[0m"
+git clone "https://github.com/$github_user/$project_name" > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+    echo -e "\e[92mDone :)\e[0m"
+
+    # Log project history to "~/get/clone.hist"
+    echo "$(date +"%Y-%m-%d %H:%M:%S"): $github_user/$project_name" >> "$log_file"
+else
+    echo -e "\e[91mError: Unable to fetch the repository. Check if the user/project exists.\e[0m"
+fi
